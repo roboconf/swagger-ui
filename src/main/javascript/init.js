@@ -21,7 +21,7 @@ $(function () {
     url: url,
     dom_id: 'swagger-ui-container',
     supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
-    onComplete: function(swaggerApi, swaggerUi){
+    onComplete: function(/*swaggerApi, swaggerUi*/){
       if(typeof initOAuth === 'function') {
         // We do not care for Roboconf
      }
@@ -30,7 +30,7 @@ $(function () {
         window.SwaggerTranslator.translate();
       }
     },
-    onFailure: function(data) {
+    onFailure: function(/*data*/) {
       log('Unable to Load SwaggerUI');
     },
     docExpansion: 'none',

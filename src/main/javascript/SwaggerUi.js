@@ -1,4 +1,3 @@
- /*global JSONEditor*/
 'use strict';
 
 window.SwaggerUi = Backbone.Router.extend({
@@ -63,16 +62,6 @@ window.SwaggerUi = Backbone.Router.extend({
 
     // Create view to handle the header inputs
     this.headerView = new SwaggerUi.Views.HeaderView({el: $('#header')});
-
-    // JSon Editor custom theming
-     JSONEditor.defaults.iconlibs.swagger = JSONEditor.AbstractIconLib.extend({
-      mapping: {
-        collapse: 'collapse',
-        expand: 'expand'
-        },
-      icon_prefix: 'swagger-'
-      });
-
   },
 
   // Set an option after initializing
