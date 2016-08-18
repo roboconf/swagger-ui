@@ -85,7 +85,7 @@ function _less() {
     ])
     .pipe(less())
     .on('error', function(err){ log(err); this.emit('end');})
-    .pipe(gulp.dest('./src/main/html/css/'))
+    .pipe(gulp.dest('./dist/css/'))
     .pipe(connect.reload());
 }
 gulp.task('dev-less', _less);
