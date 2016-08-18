@@ -108,6 +108,12 @@ function _copy() {
     .src(['./lang/**/*.js'])
     .pipe(gulp.dest('./dist/lang'))
     .on('error', log);
+  
+  // Copy CSS files
+  gulp
+    .src(['./src/main/custom-css/**/*.css'])
+    .pipe(gulp.dest('./dist/css'))
+    .on('error', log);
 
   // copy all files inside html folder
   gulp
@@ -132,6 +138,7 @@ gulp.task('watch', ['copy-local-specs'], function() {
   return watch([
     './src/**/*.{js,less,handlebars}',
     './src/main/html/*.html',
+    './src/main/custom-css/*.css',
     './test/specs/**/*.{json,yaml}'
     ],
     function() {

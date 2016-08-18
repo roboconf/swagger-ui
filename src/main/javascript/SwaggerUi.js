@@ -64,11 +64,6 @@ window.SwaggerUi = Backbone.Router.extend({
     // Create view to handle the header inputs
     this.headerView = new SwaggerUi.Views.HeaderView({el: $('#header')});
 
-    // Event handler for when the baseUrl/apiKey is entered by user
-    this.headerView.on('update-swagger-ui', function(data) {
-      return that.updateSwaggerUi(data);
-    });
-
     // JSon Editor custom theming
      JSONEditor.defaults.iconlibs.swagger = JSONEditor.AbstractIconLib.extend({
       mapping: {
@@ -166,7 +161,6 @@ window.SwaggerUi = Backbone.Router.extend({
       default:
         break;
     }
-    this.renderGFM();
 
     if (this.options.onComplete){
       this.options.onComplete(this.api, this);
@@ -230,19 +224,7 @@ window.SwaggerUi = Backbone.Router.extend({
     }
 
     return val;
-  },
-
-  // Renders GFM for elements with 'markdown' class
-  renderGFM: function(){
-    $('.markdown').each(function(){
-      $(this).html(marked($(this).html()));
-    });
-
-    $('.propDesc', '.model-signature .description').each(function () {
-      $(this).html(marked($(this).html())).addClass('markdown');
-    });
   }
-
 });
 
 window.SwaggerUi.Views = {};

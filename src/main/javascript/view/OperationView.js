@@ -90,6 +90,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     if (!isMethodSubmissionSupported) {
       this.model.isReadOnly = true;
     }
+     
     this.model.description = this.model.description || this.model.notes;
     this.model.oauth = null;
     modelAuths = this.model.authorizations || this.model.security;
@@ -553,8 +554,9 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
   // handler for hide response link
   hideResponse: function(e) {
     if (e) { e.preventDefault(); }
-    $('.response', $(this.el)).slideUp();
-    $('.response_hider', $(this.el)).fadeOut();
+    $('.curl-content', $(this.el)).hide();
+    $('.update-curl-content', $(this.el)).hide();
+    $('.show-curl-content', $(this.el)).show();
   },
 
   // Show response from server
@@ -774,7 +776,10 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     // adds curl output
     var curlCommand = this.model.asCurl(this.map, {responseContentType: contentType});
     curlCommand = curlCommand.replace('!', '&#33;');
-    $( 'div.curl', $(this.el)).html('<pre>' + _.escape(curlCommand) + '</pre>');
+    $( 'div.curl-content', $(this.el)).html('<pre>' + _.escape(curlCommand) + '</pre>');
+    $('.show-curl-content', $(this.el)).hide();
+    $('.update-curl-content', $(this.el)).show();
+    $('.curl-content', $(this.el)).show();
 
     // only highlight the response if response is less than threshold, default state is highlight response
     var opts = this.options.swaggerOptions;
@@ -792,7 +797,7 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     if (opts.highlightSizeThreshold && typeof response.data !== 'undefined' && response.data.length > opts.highlightSizeThreshold) {
       return response_body_el;
     } else {
-      return hljs.highlightBlock(response_body_el);
+      return response_body_el; //hljs.highlightBlock(response_body_el);
     }
   },
 

@@ -111,30 +111,21 @@
             </tbody>
           </table>
           {{/if}}
-          {{#if isReadOnly}}
-          {{else}}
-          <div class='sandbox_header'>
-            <input class='submit' type='submit' value='Try it out!' data-sw-translate/>
-            <a href='#' class='response_hider' style='display:none' data-sw-translate>Hide Response</a>
-            <span class='response_throbber' style='display:none'></span>
-          </div>
-          {{/if}}
         </form>
-        <div class='response' style='display:none'>
+        <div class='response'>
           <h4 class='curl'>Curl</h4>
-          <div class='block curl'></div>
-          <h4 data-sw-translate>Request URL</h4>
-          <div class='block request_url'></div>
-          {{#if showRequestHeaders}}
-          <h4 data-sw-translate>Request Headers</h4>
-          <div class='block request_headers'></div>
-          {{/if}}
-          <h4 data-sw-translate>Response Body</h4>
-          <div class='block response_body'></div>
-          <h4 data-sw-translate>Response Code</h4>
-          <div class='block response_code'></div>
-          <h4 data-sw-translate>Response Headers</h4>
-          <div class='block response_headers'></div>
+          <div class='block curl-content' style='display:none'></div>
+          
+          <div class='block update-curl-content' style='display:none'>
+          	<input class='submit' type='submit' value='Update the CURL command'/>
+            &nbsp;
+            <a href='#' class='response_hider'>Hide the CURL command</a>
+          </div>
+          
+          <div class='block show-curl-content'>
+          	<input class='submit' type='submit' value='Show the CURL command'/>
+          </div>
+          
         </div>
       </div>
     </li>
