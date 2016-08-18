@@ -13,13 +13,29 @@
 	margin-bottom: 18px;
 }
 
+.markdown {
+	margin-top: 8px !important;
+}
+
 .markdown p {
-	margin: 0 !important;
+	margin: 8px 0 0 0; !important;
 	padding: 0 !important;
 }
 
 .markdown ul {
 	margin: 0 !important; 
+}
+
+.markdown li > ul {
+	margin: 10px 0 6px 24px !important;
+}
+
+.markdown li {
+	font-size: 1em !important;
+}
+
+.signature-nav {
+	margin-top: 14px !important;
 }
 
 .footer h4 {
