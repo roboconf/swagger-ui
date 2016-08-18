@@ -17,3 +17,4 @@ dist/specs/
 test/specs/local/
 
 dist
+node_modules
