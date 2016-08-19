@@ -8,8 +8,11 @@ Main differences with the original version:
 
 * The **dist** directory is not shared on Github. It can be built when necessary.
 * The **dist** directory was [removed from the repository's history](http://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-git-repo),
-as it is quite big (> 2 MB).
-* Some CSS customizations, as well as modifications to the Handlebar templates.
+as it is quite big (> 2 MB). It was removed in both the master and the tags. The repository's size dropped from about 60 Mb to 6 Mb.
+* Some CSS customizations, as well as modifications to the Handlebars templates.
+* Enhanced build process (in particular in dev' mode - PR submitted).
+* Apply a PR from the original repository to prevent XSS attacks.
+* Review the loading mechanism to only accept *swagger.json* files hosted on Roboconf's Maven repositories.
 
 For more information, please refer to the [original readme](Swagger_UI_README.md).
 

@@ -2,12 +2,29 @@
 
 $(function () {
   var url = window.location.search.match(/url=([^&]+)/);
-  if (url && url.length > 1) {
+  if (url && 
+      url.length > 1 && 
+      0 === url.lastIndexOf( 'http://repo1.maven.org/maven2/net/roboconf/', 0 )) {
     url = decodeURIComponent(url[1]);
-  } else {
+  }
+  /*
+   ** Only for tests! **
+   ** Just copy your "swagger.json" file in the "dist" directory.
+
+  else {
     url = 'swagger.json';
   }
+  
+  */
+  
+  // Check there is a valid URL
+  if (! url) {
+    var msg = 'No swagger.json file was provided.<br />Such files must be hosted by Roboconf\'s Maven repositories to be loaded here.';
+    $('#message-bar').html(msg);
+    return;
+  }
 
+  // Otherwise, use Swagger UI
   hljs.configure({
     highlightSizeThreshold: 5000
   });
@@ -31,7 +48,7 @@ $(function () {
       }
     },
     onFailure: function(/*data*/) {
-      log('Unable to Load SwaggerUI');
+      log('Unable to Load SwaggerUI.');
     },
     docExpansion: 'none',
     jsonEditor: false,
