@@ -13,6 +13,7 @@ as it is quite big (> 2 MB). It was removed in both the master and the tags. The
 * Enhanced build process (in particular in dev' mode - PR submitted).
 * Apply a PR from the original repository to prevent XSS attacks.
 * Review the loading mechanism to only accept *swagger.json* files hosted on Roboconf's Maven repositories.
+* Remove useless translations, the *specs* directory and *o2.c.html* as we do not use it.
 
 For more information, please refer to the [original readme](Swagger_UI_README.md).
 

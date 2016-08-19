@@ -120,18 +120,11 @@ function _copy() {
 }
 gulp.task('dev-copy', ['dev-less', 'copy-local-specs'], _copy);
 
-gulp.task('copy-local-specs', function () {
-  // copy the test specs
-  return gulp
-    .src(['./test/specs/**/*'])
-    .pipe(gulp.dest('./dist/specs'))
-    .on('error', log);
-});
 
 /**
  * Watch for changes and recompile
  */
-gulp.task('watch', ['copy-local-specs'], function() {
+gulp.task('watch', function() {
   return watch([
     './src/main/**/*.{js,less,handlebars}',
     './src/main/html/*.html',
