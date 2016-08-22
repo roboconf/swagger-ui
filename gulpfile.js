@@ -118,7 +118,7 @@ function _copy() {
     .pipe(gulp.dest('./dist'))
     .on('error', log);
 }
-gulp.task('dev-copy', ['dev-less', 'copy-local-specs'], _copy);
+gulp.task('dev-copy', ['dev-less'], _copy);
 
 
 /**
