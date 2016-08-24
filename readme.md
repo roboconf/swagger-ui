@@ -4,6 +4,8 @@ This is a fork of Swagger UI (following version 2.1.4).
 We made small modifications for our embedded version of Swagger UI on Roboconf's web site.
 Maintaining a fork will be easier than documenting how to update the original project for our requirements.
 
+<img src="http://roboconf.net/resources/img/readme_swagger_ui.png" alt="Roboconf Dockerfile" />
+
 Main differences with the original version:
 
 * The **dist** directory is not shared on Github. It can be built when necessary.
