@@ -1,17 +1,10 @@
 {{#ifCond sampleJSON "||" sampleXML}}
 
 <div>
-<ul class="signature-nav">
-  <li><a class="description-link" href="#" data-sw-translate>Model</a></li>
-  <li><a class="snippet-link" href="#" data-sw-translate>Example Value</a></li>
-</ul>
+	<h4 class='curl'>Example Value</h4>
 <div>
 
 <div class="signature-container">
-  <div class="description">
-    {{{signature}}}
-  </div>
-
   <div class="snippet">
   {{#if sampleJSON}}
       <div class="snippet_json">
