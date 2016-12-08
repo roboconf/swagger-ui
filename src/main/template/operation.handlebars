@@ -112,6 +112,7 @@
           </table>
           {{/if}}
         </form>
+        {{#if isRest}}
         <div class='response'>
           <h4 class='curl'>Curl</h4>
           <div class='block curl-content' style='display:none'></div>
@@ -125,8 +126,8 @@
           <div class='block show-curl-content'>
           	<input class='submit' type='submit' value='Show the CURL command'/>
           </div>
-          
         </div>
+        {{/if}}
       </div>
     </li>
   </ul>

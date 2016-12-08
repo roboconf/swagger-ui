@@ -123,6 +123,16 @@ window.SwaggerUi = Backbone.Router.extend({
   render: function(){
     var authsModel;
     this.showMessage('Finished Loading Resource Information. Rendering Swagger UI...');
+    
+    // VZ: determine whether we display REST or web socket data
+    this.options.isRest = this.api.info.title.match(/\bREST\b/i) !== null;
+
+    // List all the operations for the web socket
+    if (! this.options.isRest) {
+      this.options.docExpansion = 'list';
+    }
+    // VZ
+    
     this.mainView = new SwaggerUi.Views.MainView({
       model: this.api,
       el: $('#' + this.dom_id),

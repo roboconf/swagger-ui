@@ -10,11 +10,10 @@ $(function () {
   /*
    ** Only for tests! **
    ** Just copy your "swagger.json" file in the "dist" directory.
-
+   
   else {
-    url = 'swagger.json';
+    url = '/swagger.json';
   }
-  
   */
   
   // Check there is a valid URL

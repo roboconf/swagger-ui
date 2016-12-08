@@ -54,7 +54,7 @@ function _dist() {
         './src/generated/templates.js',
         './node_modules/swagger-client/browser/swagger-client.js'
     ])
-    .pipe(order(['scripts.js', 'templates.js']))
+    .pipe(order(['**/javascript/**/*.js', '**/generated/templates.js']))
     .pipe(concat('swagger-ui.js'))
     .pipe(wrap('(function(){<%= contents %>}).call(this);'))
     .pipe(header(banner, { pkg: pkg }))

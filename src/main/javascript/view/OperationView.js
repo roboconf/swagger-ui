@@ -20,10 +20,14 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
     this.parentId = this.model.parentId;
     this.nickname = this.model.nickname;
     this.model.encodedParentId = encodeURIComponent(this.parentId);
+    this.model.isRest = false;
 
     if (opts.swaggerOptions) {
-      this.model.defaultRendering = opts.swaggerOptions.defaultModelRendering;
+      // VZ: determine whether we display REST or web socket data
+      this.model.isRest = opts.swaggerOptions.isRest;
+      // VZ
 
+      this.model.defaultRendering = opts.swaggerOptions.defaultModelRendering;
       if (opts.swaggerOptions.showRequestHeaders) {
         this.model.showRequestHeaders = true;
       }
@@ -83,14 +87,14 @@ SwaggerUi.Views.OperationView = Backbone.View.extend({
   },
 
   // Note: copied from CoffeeScript compiled file
-  // TODO: redactor
+  // TODO: refactor
   render: function() {
     var a, auth, auths, code, contentTypeModel, isMethodSubmissionSupported, k, key, l, len, len1, len2, len3, len4, m, modelAuths, n, o, p, param, q, ref, ref1, ref2, ref3, ref4, ref5, responseContentTypeView, responseSignatureView, schema, schemaObj, scopeIndex, signatureModel, statusCode, successResponse, type, v, value, produces, isXML, isJSON;
     isMethodSubmissionSupported = jQuery.inArray(this.model.method, this.model.supportedSubmitMethods()) >= 0;
     if (!isMethodSubmissionSupported) {
       this.model.isReadOnly = true;
     }
-     
+
     this.model.description = this.model.description || this.model.notes;
     this.model.oauth = null;
     modelAuths = this.model.authorizations || this.model.security;
