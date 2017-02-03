@@ -1,11 +1,14 @@
 'use strict';
 
 $(function () {
-  var url = window.location.search.match(/url=([^&]+)/);
-  if (url && 
-      url.length > 1 && 
-      0 === url.lastIndexOf( 'http://repo1.maven.org/maven2/net/roboconf/', 0 )) {
-    url = decodeURIComponent(url[1]);
+  var url = '';
+  var rawUrl = window.location.search.match(/url=([^&]+)/);
+  if (rawUrl && rawUrl.length > 1) { 
+      if (rawUrl[1].startsWith('http://roboconf.net/') ||
+          rawUrl[1].startsWith('http://localhost') ||
+          rawUrl[1].startsWith('/')) {
+        url = decodeURIComponent(rawUrl[1]);
+      }
   }
   /*
    ** Only for tests! **

@@ -99,7 +99,6 @@ window.SwaggerUi = Backbone.Router.extend({
     }
     this.options.url = url;
     this.headerView.update(url);
-
     this.api = new SwaggerClient(this.options);
   },
 

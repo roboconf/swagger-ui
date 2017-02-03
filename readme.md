@@ -39,7 +39,19 @@ npm run serve
 
 * Build the **dist** directory.
 * Copy it under the **swagger** directory of the web site (roboconf.github.io).
-* That's it! ;) 
+* That's it! ;)
+
+
+## Parameters
+
+* **url**: the URL of the swagger.json file to read.  
+Must start with `http://roboconf.net/` or `http://localhost`.
+
+At the beginning, we hoped we could reference directly swagger.json files
+from Maven repositories. But we face CORS issues in web browsers.
+
+If the URL contains the **rest** sequence of characters, then it is considered to display the documentation
+for the REST API. Otherwise, it will display read special elements that are specific for our web socket.
 
 
 ## License
