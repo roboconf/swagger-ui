@@ -12,10 +12,10 @@ Main differences with the original version:
 * The **dist** directory was [removed from the repository's history](http://dalibornasevic.com/posts/2-permanently-remove-files-and-folders-from-git-repo),
 as it is quite big (> 2 MB). It was removed in both the master and the tags. The repository's size dropped from about 60 Mb to 6 Mb.
 * Some CSS customizations, as well as modifications to the Handlebars templates.
-* Enhanced build process (in particular in dev' mode - PR submitted).
-* Apply a PR from the original repository to prevent XSS attacks.
-* Review the loading mechanism to only accept *swagger.json* files hosted on Roboconf's Maven repositories.
-* Remove useless translations, the *specs* directory and *o2.c.html* as we do not use it.
+* Enhanced build process (in particular in dev' mode - [PR](https://github.com/swagger-api/swagger-ui/pull/2339) submitted).
+* Apply a [PR](https://github.com/swagger-api/swagger-ui/pull/1868) from the original repository to prevent XSS attacks.
+* Review the loading mechanism to only accept *swagger.json* files hosted on Roboconf's web site.
+* Remove useless translations, the *specs* directory and *o2.c.html* as we do not use them.
 
 For more information, please refer to the [original readme](Swagger_UI_README.md).
 
@@ -48,7 +48,7 @@ npm run serve
 Must start with `http://roboconf.net/` or `http://localhost`.
 
 At the beginning, we hoped we could reference directly swagger.json files
-from Maven repositories. But we face CORS issues in web browsers.
+from Maven repositories. But we faced CORS issues in web browsers.
 
 If the URL contains the **rest** sequence of characters, then it is considered to display the documentation
 for the REST API. Otherwise, it will display read special elements that are specific for our web socket.
